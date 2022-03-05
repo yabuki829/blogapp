@@ -1,0 +1,21 @@
+{% extends 'app/post_base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div class="pt-5 ">
+    <form  method="post" enctype="multipart/form-data " class="">
+        {% csrf_token %}
+        {{ form.media }}
+        
+        <div class="flex">
+            <div class="w-full py-3">
+                {% render_field form.title class="form-control w-full h-16 text-2xl border-solid border-gray-300 border-4" placeholder="タイトルを入力" %}
+            </div>
+            <button class=" inline-block w-1/12 bg-blue-500 text-white mx-3 my-4  rounded hover:bg-blue-400" type="submit">投稿</button>
+        </div>
+            {% render_field form.content class="form-control resize-auto w-full  box-border text-xl p-3 m-1border-solid border-gray-300 border-4" placeholder="本文" %}
+            
+        </form>
+</div>
+{% endblock content %}

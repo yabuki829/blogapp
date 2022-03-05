@@ -1,0 +1,21 @@
+{% extends 'app/post_base.html' %}
+
+{% block content %}
+
+
+    <div class="card card-auth my-5 mx-auto ">
+        <div class="card-body">
+            <p class="card-title text-center">ログアウトしますか？</p>
+            <form class="form-auth" method="post">
+                {% csrf_token %}
+                <div class="text-center ">
+                    <button class="bg-red-500 text-white p-3 rounded" type="submit">ログアウト</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+

@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load markdown_extras %}
+{% block content %}
+    <div id="">
+        {% for post in post_data %}
+            <div class="bg-white border-solid border-gray-300 border-2  md:border-3 p-5 mb:3  md:mb-5" >
+
+                    <h1 class=" text-2xl md:text-4xl">{{ post.title}}</h1>                            
+                    <p class="text-sm text-gray-500 md:text-base" >{{ post.content|markdown|safe|truncatechars:30}}</p>
+                    <a href="{% url "post_detail" post.id %}" class="text-sm md:text-base block text-right text-blue-600 ">続きを読む</a>
+                <hr>
+                    <h4 class="text-sm md:text-base">{{ post.created }}</h4 >
+            </div>
+        {% endfor %}
+
+    </div>
+     
+
+{% endblock content %}
+
+{% block sildebar %}
+    <ul class="bg-white mb-5">
+        <h1 class=" ml-2 text-2xl text-gray-700 font-serif bg-blue-400 block ">最近の投稿</h1>
+        <li><a href="{% url "post_detail" post_data.0.id %}" class="block text-left  text-gray-500 p-3 mb-1 ">{{  post_data.0.title }}</a></li>
+        <hr>
+        <li><a href="{% url "post_detail" post_data.1.id %}" class="block  text-gray-500 p-3 mb-1">{{  post_data.1.title }}</a></li>
+        <hr>
+        <li><a href="{% url "post_detail" post_data.2.id %}" class="block  text-gray-500 p-3 mb-1">{{  post_data.2.title }}</a></li>
+        <hr>
+        <li><a href="{% url "post_detail" post_data.3.id %}" class="block  text-gray-500 p-3 mb-1">{{  post_data.3.title }}</a></li>
+    </ul>
+{% endblock  %}
