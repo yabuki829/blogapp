@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "app.context_processors.common"
             ],
             'libraries': { 
                 'markdown_extras': 'app.templatetags.markdown_extras', #追記
@@ -147,13 +148,15 @@ LOGIN_REDIRECT_URL = "/"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_VERTIFICATION = "none"
 
+LOGIN_URL = '/' # ログインしていないときのリダイレクト先
+LOGIN_REDIRECT_URL = '/' # ログイン後のリダイレクト先
+LOGOUT_REDIRECT_URL = '/' # ログアウト後のリダイレクト先
 
 # pilowの設定
 MEDIA_URL = "/media/"
-
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
-	# ファイルアップロード用
+# ファイルアップロード用
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'   
 
@@ -181,8 +184,8 @@ MDEDITOR_CONFIGS = {
         'flow_chart': True,  # whether to open the flow chart function
         'sequence': True, # Whether to open the sequence diagram function
         'watch': True,  # Live preview
-        'lineWrapping': True,  # lineWrapping
-        'lineNumbers': True,  # lineNumbers
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': False,  # lineNumbers
         'language': 'en'
     }
 

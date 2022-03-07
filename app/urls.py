@@ -9,10 +9,11 @@ urlpatterns = [
     path('post/new',views.CreatePostView.as_view(),name="create_new"),   
     path('post/<int:pk>/edit',views.PostEditView.as_view(),name="post_edit"),   
     path('post/<int:pk>/delete',views.PostDeleteView.as_view(),name="post_delete"),    
-    path(r'mdeditor/', include('mdeditor.urls')) # 追加
+    path('category/<str:category>',views.CategoryView.as_view(),name="category"),    
+    path(r'mdeditor/', include('mdeditor.urls')),
+
 ]
 
 if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

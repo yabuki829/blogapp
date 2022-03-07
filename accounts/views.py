@@ -12,3 +12,4 @@ class LogoutView(views.LogoutView):
         if self.request.user.is_authenticated:
             self.logout()
         return redirect("/")
+

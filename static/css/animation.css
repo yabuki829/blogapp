@@ -1,0 +1,27 @@
+.header-title a {
+    width: 16ch; 
+    animation: typing 2.5s steps(17),  blink 1.1s steps(1) infinite;
+    white-space: nowrap; 
+    overflow: hidden;
+    border-right: 5px solid;
+    border-color: greenyellow;
+  }
+
+.content .title {
+    width: 20ch; 
+    animation: typing 2.5s steps(20);
+    white-space: nowrap; 
+    overflow: hidden;
+}
+  
+  @keyframes typing {
+    from {
+      width: 0 
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent 
+    }
+  }

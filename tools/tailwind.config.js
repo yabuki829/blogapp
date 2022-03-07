@@ -4,20 +4,26 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: {
-    enabled: false,
+    enabled: true,
     content: ['../**/templates/*.html', '../**/templates/**/*.html'],
   },
   theme: {
     extend: {
       animation: {
-        wiggle: 'wiggle 1s 1 ',
+        vote: 'vote 1s ease-in-out',
       },
       keyframes: {
-        wiggle: {
-          '0%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
-          '100%': { transform: 'none'}
-        }
+        vote: {
+          '0%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(-30deg)',
+          },
+          '75%': {
+            transform: 'rotate(30deg)',
+          },
+        },
       }
     },
   },
