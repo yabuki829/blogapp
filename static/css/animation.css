@@ -1,6 +1,6 @@
 .header-title a {
     width: 16ch; 
-    animation: typing 2.5s steps(17),  blink 1.1s steps(1) infinite;
+    animation: typing 2.5s steps(18),  blink 1.1s steps(1) infinite;
     white-space: nowrap; 
     overflow: hidden;
     border-right: 5px solid;

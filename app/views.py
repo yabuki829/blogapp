@@ -2,15 +2,23 @@ from email import contentmanager
 from tkinter import font
 from turtle import title
 from unicodedata import category, name
+import django
+
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from .models import Post,Category
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
+from functools import reduce
+from operator import and_
+from django.core.paginator import Paginator
+
 
 class IndexView(View):
     def get(self, request, *args, **kwargs ):
         post_data = Post.objects.order_by("-id")
+        p = Paginator(Post.objects.order_by("-id"),10)
         latest_data = Post.objects.all()[:5]
         return render(request, "app/index.html",{
             "post_data":post_data,
@@ -115,4 +123,28 @@ class CategoryView(View):
             "post_data":post_data,
             "latest_data":latest_data
         })
+       
+
+class SearchView(View):
+    def get(self,request,*args,**kwargs):
+        post_data = Post.objects.order_by("-id")
+        latest_data = Post.objects.all()[:5]
+        keyword = request.GET.get("keyword")
+        print("ok1")
+        if keyword:
+            excluded_list = set([' ','　'])
+            query_list =''
+            print("ok2")
+            for word in keyword:
+                if not word in excluded_list:
+                    query_list += word
+            query = reduce(and_,[Q(title__icontains=q)| Q(content__icontains=q) for q in query_list])
+            post_data = post_data.filter(query)
+            print("ok3")
+        return render(request,"app/index.html",{
+            "keyword" : keyword,
+            "post_data":post_data,
+            "latest_data":latest_data
+        })
+
        

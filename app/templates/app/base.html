@@ -20,10 +20,10 @@
     <title>Blog</title>
 </head>
 <div class="bg-gray-800 px-5">
-    <header class="container mx-auto text-white" >
+    <header class="container mx-auto text-white pt-5 md:pt-0" >
         <div class="md:flex justify-between items-center">
             <h1 class="header-title text-2xl font-semibold md:text-4xl">
-                <a class="block typing " href="{% url "index"%}">SDIProgrammerBlog</a>
+                <a class="block typing hover:scale-110 " href="{% url "index"%}">SDIProgrammerBlog</a>
             </h1>
             <div class="md:block">
                 <ul class=" flex justify-start my-4 md: justify-end">
@@ -46,22 +46,31 @@
 
 <body  class="bg-gray-100 w-full">
     <main　class="flex-auto">
-        <div class="container mx-auto mt-0 md:grid grid-cols-4 gap-4 md:mt-10">
+        <div class="container mx-auto  mt-0 md:grid grid-cols-4 gap-4 md:mt-10">
             
             <div  class="col-span-3 w-full">
                 {% block content %}
                 {% endblock  %}
             </div>
             
-            <div class="w-full m-0 pt-5 md: inline-block md:ml-5 md:pt-0 ">
+            <div class="w-full m-0  pt-5 md: inline-block md:ml-5 md:pt-0 ">
 
-                <div class="bg-white m-auto py-3 mb-3 w-full md:py-0 md: m-0">
+                <div class="bg-white m-auto mb-5 py-3 mb-3 w-full md:py-0 md: m-0">
                     <div class="flex md:inline-block">
                         <img class="rounded w-1/4 md:w-full" src="{% static "images/img3.jpg" %}" height="80%" %>
                         <h1 class=" w-full bg-blue-500 text-2xl bg-blue-400 text-center text-white font-serif">SDI</h1>
                     </div>
                    
                    
+                </div>
+                <div class="mb-5 border-solid border-gray-300 border-2 bg-white" >
+                    <h1 class="text-2xl text-center  font-serif  text-white bg-gray-700">検索</h1>
+                    <hr>
+                    
+                    <form class="flex"action="{% url "search" %}" method="get">
+                        <input class="w-full" type="text" name="keyword" placeholder="ブログ内を検索する">
+                        <button class="w-1/6 bg-blue-500  p-1 rounded text-white" type="submit">検索</button>
+                    </form>
                 </div>
                
                     {% comment %} {% block sildebar %}
@@ -74,6 +83,8 @@
                     {% endfor %}
                 </ul>
 
+                
+
                 <div class="mb-5">
                     <h1 class="text-2xl text-center  font-serif bg-red-400 text-white">カテゴリ</h1>
                     <ul class="bg-white mb-5">
@@ -82,13 +93,11 @@
                             <hr>
                         {% endfor %}
                     </ul>
-                
-                   
-                   
                 </div>
-                
+              
                 <h1 class="text-2xl text-gray-700 text-center font-serif md:ml-2">Link</h1>
                 <ul class=" mb-3 text-white text-center mx-20  md:mx-10">
+
                     <li><a href="" class="block  text-white-500 bg-blue-400 rounded p-3 mb-1  hover:scale-110 hover:bg-blue-300">Twitter</a></li>
                     <hr>
                     <li><a href="" class="block  text-white-500 bg-green-500 rounded p-3 mb-1  hover:scale-110 hover:bg-green-400 ">Qiita</a></li>

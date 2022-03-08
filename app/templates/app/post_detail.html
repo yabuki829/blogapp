@@ -4,23 +4,25 @@
 {% block content %}
 
 <div class=" border-solid border-gray-300 border-2 container bg-white w-full p-5 mb-5">  
-    <div class="flex justify-between">
+    <div class="flex justify-between px-5">
         <h1 class="title text-2xl text-bold md:text-3xl">{{ post_data.title }}</h1>
-        {% if user.is_authenticated %}
+     
         <div class="">
             <ul class="md:flex">
                 <li> <a class="bg-blue-500 text-white rounded px-3 md:m-2 " href="{% url "category" post_data.category %}">{{ post_data.category }}</a></li>
-                <li><a class="bg-green-500 text-white rounded px-3 md:m-2 " href="{% url "post_edit" post_data.id%}">編集</a></li>
-                <li> <a class="bg-red-500 text-white rounded px-3 md:m-2" href=" {% url "post_delete" post_data.id %}">削除</a></li>
+                {% if user.is_authenticated %}
+                    <li><a class="bg-green-500 text-white rounded px-3 md:m-2 " href="{% url "post_edit" post_data.id%}">編集</a></li>
+                    <li> <a class="bg-red-500 text-white rounded px-3 md:m-2" href=" {% url "post_delete" post_data.id %}">削除</a></li>
+                {% endif %}
             </ul>
             
            
         </div>
-        {% endif %}
+
     </div>
 
     <div id="content">
-        <p> {{ post_data.created }} by {{ post_data.auther }}</p>
+        <p> {{ post_data.created }} by SDI</p>
         <hr>
         <p>{{ post_data.content|markdown|safe|linebreaksbr}}</p>
     </div>

@@ -9,7 +9,8 @@ urlpatterns = [
     path('post/new',views.CreatePostView.as_view(),name="create_new"),   
     path('post/<int:pk>/edit',views.PostEditView.as_view(),name="post_edit"),   
     path('post/<int:pk>/delete',views.PostDeleteView.as_view(),name="post_delete"),    
-    path('category/<str:category>',views.CategoryView.as_view(),name="category"),    
+    path('tag/<str:category>',views.CategoryView.as_view(),name="category"),   
+    path('search/',views.SearchView.as_view(),name="search"),     
     path(r'mdeditor/', include('mdeditor.urls')),
 
 ]
