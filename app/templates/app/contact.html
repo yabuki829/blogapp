@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="bg-white rounded overflow-hidden shadow-xl mx-auto w-3/5">
+    <h1 class="text-center text-2xl text-gray-700">お問い合わせ</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="m-5">
+            {% render_field form.name class="mb-5 w-full border-solid border-gray-300 border-2 rounded" placeholder="名前" %}
+            {% render_field form.email class="mb-5 w-full border-solid border-gray-300 border-2 rounded" placeholder="メールアドレス" %}
+            {% render_field form.title class="mb-5 w-full border-solid border-gray-300 border-2 rounded" placeholder="件名" %}
+            {% render_field form.message class="<mb-5></mb-5> w-full border-solid border-gray-300 border-2 rounded" placeholder="メッセージ" %}
+            <div class="flex justify-center">
+                <button class="mb-5 px-5 py-2 bg-blue-500 rounded text-white" type="submit"> 送信</button>
+            </div>
+           
+        </div>
+        
+    </form>
+</div>
+<h1></h1>
+{% endblock content %}
+
+

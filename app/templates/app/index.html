@@ -5,9 +5,9 @@
         {% if keyword %}
         <h3 class="mb-5">「  {{keyword}}の検索結果 」</h3>
         {% endif %}
-     {% for post in post_data %}
+     {% for post in posts %}
 
-        <div class=" bg-white overflow-hidden  border-solid border-gray-300 border-2 mb-3 mx-5 md:border-3  md:mb-5 hover:scale-105 hover:shadow-xl  transition ease-in-out duration-200" >
+        <div class=" bg-white overflow-hidden  border-solid border-gray-300 border-2 mb-3 md:border-3  md:mb-5 hover:scale-105 hover:shadow-xl  transition ease-in-out duration-200" >
 
            
             <a href="{% url "post_detail" post.id %}" class="text-sm  md:text-base ">  
@@ -24,7 +24,6 @@
                 </div>            
                 <hr>
                 <div class="flex justify-between px-3">
-                    
                     <h4 class=" m-2">{{ post.created }}</h4 >
                     <a href="{% url "category" post.category %}"class = " m-2 p-1 w-16 text-center text-white bg-blue-400 rounded">{{ post.category }}</a>
                 </div>  
@@ -35,12 +34,45 @@
             
     {% endfor %}
 
-     
+         
 
-{% endblock content %}
+ {% endblock content %}
+       
+{% block pagenator %}
+        <ul class="flex justify-around">
+            
+           <div class="">
+                {% if posts.has_previous %}
+                <li class="mx-10 p-2"><a href="?page={{ posts.previous_page_number }}">前へ</a></li>
+            {% endif %} 
+           
+           </div>
+          
+               
+                {% comment %} <li class="mx-3 p-2 bg-gray-700 text-white">{{ posts.number }}</li> {% endcomment %}
+               
+            
+           
 
-{% block sildebar %}
+            <div class="flex">
+                {% for num in posts.paginator.page_range %}
+                {% if posts.number == num  %}
+                    <li class="mx-3 p-2 bg-gray-700 text-white">{{ num }}</li>
+                {% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+                    <li class="mx-3 p-2"><a href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
 
-{% endblock  %}
+            </div>
+          
+            <div class="">
+                {% if posts.has_next %}
+                <li class="mx-10 p-2"> <a class=""href="?page={{ posts.next_page_number }}">次へ</a></li>
+            {% endif %}  
+            </div>
+           
 
+
+        </ul>   
+{% endblock pagenator %}
 

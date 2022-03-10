@@ -22,18 +22,7 @@
             </h1>
             <div class="md:block">
                 <ul class=" flex justify-start my-4 md: justify-end">
-                        <li><a class="text-xs block hover:bg-gray-700 md: px-8 py-2   text-base"href="{% url "index" %}">Home</a></li>
-                    {% if user.is_authenticated %}   
-                        <li ><a class="text-xs block   hover:bg-gray-700 md:  px-8 py-2  text-base"href="{% url "create_new" %}">Post</a></li>
-                        <li ><a class="text-xs block  hover:bg-gray-700 md: px-8 py-2   text-base"href="{% url "account_logout"%}">Logout</a></li>
-                    {% else %}
-                        <li ><a class="text-xs block hover:bg-gray-700 md:  px-8 py-2  text-base"href="{% url "account_login" %}">Login</a></li>
-                    {% endif %}
-    
-                    {% comment %} <li >
-                        <a class="text-xs block px-8 py-2 hover:bg-gray-600 md:text-base md:px-8 py-2 bg-orange-500 rounded-full"href="#">お問い合わせ</a>
-                    </li> {% endcomment %}
-                    
+                        <li><a class="text-xs block hover:bg-gray-700 md: px-8 py-2   text-base"href="{% url "index" %}">Home</a></li>                
                 </ul>
             </div>
         </div>
@@ -41,15 +30,12 @@
         
     </header>
 </div>
-<body>
-    <main >
-        <div class="container mx-auto">
+<body class="bg-gray-100 w-full">
+    <main class="pt-10 ">
+       
             {% block content %}
             {% endblock  %}
-        </div>
-          
-          
-
+        
     </main>
 
     {% block extra_js  %}

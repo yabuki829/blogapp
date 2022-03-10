@@ -12,6 +12,7 @@ urlpatterns = [
     path('tag/<str:category>',views.CategoryView.as_view(),name="category"),   
     path('search/',views.SearchView.as_view(),name="search"),     
     path(r'mdeditor/', include('mdeditor.urls')),
+    path('contact/',views.ContactView.as_view(),name="contact"),
 
 ]
 

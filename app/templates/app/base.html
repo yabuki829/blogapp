@@ -10,16 +10,17 @@
     <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
     <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
 
+
+
+    <link rel="stylesheet" href="{% static "css/style.css" %} ">
+    <link rel="stylesheet" href="{% static "css/style.min.css" %}"> 
+    <link rel="stylesheet" href="{% static "css/animation.css" %} ">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    {% comment %} <link rel="stylesheet" href="{% static "css/style.css" %} ">
-    <link rel="stylesheet" href="{% static "css/style.min.css" %}"> {% endcomment %}
-     <link rel="stylesheet" href="{% static "css/animation.css" %} ">
-    <link rel="stylesheet" href="{% static "css/base.css" %} ">
-
     <title>Blog</title>
 </head>
-<div class="bg-gray-800 px-5">
+
+<div class="bg-gray-800 px-5" >
     <header class="container mx-auto text-white pt-5 md:pt-0" >
         <div class="md:flex justify-between items-center">
             <h1 class="header-title text-2xl font-semibold md:text-4xl">
@@ -32,7 +33,7 @@
                         <li ><a class="text-xs block   hover:bg-gray-700 md:  px-5 py-2  text-base"href="{% url "create_new" %}">投稿</a></li>
                         <li ><a class="text-xs block  hover:bg-gray-700 md: px-5 py-2   text-base"href="{% url "account_logout"%}">ログアウト</a></li>
                     {% else %}
-                        <li ><a class="text-xs block hover:bg-gray-700 md:  px-5 py-2  text-base"href="{% url "account_login" %}">お問い合わせ</a></li>
+                        <li ><a class="text-xs block hover:bg-gray-700 md:  px-5 py-2  text-base"href="{% url "contact" %}">お問い合わせ</a></li>
                     {% endif %}
 
                    
@@ -44,27 +45,24 @@
 </div>
 
 
-<body  class="bg-gray-100 w-full">
-    <main　class="flex-auto">
+<body class="bg-gray-100 w-full h-full" >
+    <main　class="">
         <div class="container mx-auto  mt-0 md:grid grid-cols-4 gap-4 md:mt-10">
             
-            <div  class="col-span-3 w-full">
+            <div  class="col-span-3 w-full mx-2">
                 {% block content %}
-                {% endblock  %}
+                {% endblock %}
+                
+                {% block pagenator %}
+                {% endblock pagenator %}   
+               
             </div>
             
             <div class="w-full m-0  pt-5 md: inline-block md:ml-5 md:pt-0 ">
 
-                <div class="bg-white m-auto mb-5 py-3 mb-3 w-full md:py-0 md: m-0">
-                    <div class="flex md:inline-block">
-                        <img class="rounded w-1/4 md:w-full" src="{% static "images/img3.jpg" %}" height="80%" %>
-                        <h1 class=" w-full bg-blue-500 text-2xl bg-blue-400 text-center text-white font-serif">SDI</h1>
-                    </div>
-                   
-                   
-                </div>
+               
                 <div class="mb-5 border-solid border-gray-300 border-2 bg-white" >
-                    <h1 class="text-2xl text-center  font-serif  text-white bg-gray-700">検索</h1>
+                    <h1 class="text-2xl text-center  font-serif  text-white bg-gray-700">サイト内検索</h1>
                     <hr>
                     
                     <form class="flex"action="{% url "search" %}" method="get">
@@ -94,41 +92,41 @@
                         {% endfor %}
                     </ul>
                 </div>
-              
+                <div class="bg-white m-auto mb-5 py-3 mb-3 w-full md:py-0 md: m-0">
+                    <div class="flex md:inline-block">
+                        <img class="rounded w-2/5 mx-3 md:mx-0 md:w-full" src="{% static "images/img3.jpg" %}" height="80%" %>
+                        <div class="">
+                            <h1 class="bg-blue-500 text-2xl text-center text-white font-serif">SDI</h1>
+                            <p class="text-sm m-3">プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール</p>
+                        </div>
+                        
+                    </div>
+                </div>
                 <h1 class="text-2xl text-gray-700 text-center font-serif md:ml-2">Link</h1>
                 <ul class=" mb-3 text-white text-center mx-20  md:mx-10">
 
-                    <li><a href="" class="block  text-white-500 bg-blue-400 rounded p-3 mb-1  hover:scale-110 hover:bg-blue-300">Twitter</a></li>
+                    <li><a href="https://twitter.com/sdi2025" class="block  text-white-500 bg-blue-400 rounded p-3 mb-1  hover:scale-110 hover:bg-blue-300">Twitter</a></li>
                     <hr>
-                    <li><a href="" class="block  text-white-500 bg-green-500 rounded p-3 mb-1  hover:scale-110 hover:bg-green-400 ">Qiita</a></li>
+                    <li><a href="https://qiita.com/sdi2025" class="block  text-white-500 bg-green-500 rounded p-3 mb-1  hover:scale-110 hover:bg-green-400 ">Qiita</a></li>
                     <hr>
-                    <li><a href="" class="block  text-white-500 bg-red-400 rounded p-3 mb-1  hover:scale-110 hover:bg-red-300">My App</a></li>
+                    <li><a href="" class="block  text-white-500 bg-red-400 rounded p-3 mb-1  hover:scale-110 hover:bg-red-300">Comming Soon</a></li>
                     <hr>
                 </ul>   
 
             </div>
         </div>
-       
+
     </main>
 
 
 
-
+          
 
 
 
 
     <footer class="absolute w-full py-2 bg-gray-500 text-white">
-        <h1 class="hidden md:inline-block text-3xl font-bold">エンジニアブログ</h1>
-        <div class="container mx-auto">
-            <ul class="flex justify-center text-sm" >
-                <li><a href="#" class=" px-2 md:px-5 ">ブログについて</a></li>
-                <li><a href="#" class="px-2 md:px-5 ">Twitter</a></li>
-                <li><a href="#" class="px-2 md:px-5 ">Qiita</a></li>
-                <li><a href="#" class="px-2 md:px-5 ">MyApp</a></li>
-            </ul>
-        </div>
-        <p class="m-0 text-center md:my-5"> Copyright</p>
+        <p class="m-0 text-center"> Copyright　© 2022 SDI </p>
     </footer>
 
 
