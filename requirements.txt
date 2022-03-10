@@ -1,8 +1,4 @@
-Django~=2.2.10
-django-widget-tweaks
-django-allauth~=0.41.0  
-Pillow
-Markdown
-django-mdeditor
+-r requirements-dev.txt
 
-# pip3 install -r requirements.txt
+gunicorn
+psycopg2
