@@ -1,4 +1,11 @@
--r requirements-dev.txt
-
+django
+whitenoise
 gunicorn
-psycopg2
+django-widget-tweaks
+django-allauth~=0.41.0  
+Pillow
+Markdown
+django-mdeditor
+dj-database-url
+dj-static
+python-decouple
