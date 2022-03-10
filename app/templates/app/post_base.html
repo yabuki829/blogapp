@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+        
     <link rel="stylesheet" href="{% static "css/style.css" %} ">
     <link rel="stylesheet" href="{% static "css/style.min.css" %} ">
     <title>Blog</title>
@@ -18,20 +19,15 @@
 
         <div class="md:flex justify-between items-center">
             <h1 class="text-2xl font-semibold md:text-4xl">
-                <a href="{% url "index"%}">エンジニアブログ</a>
+                <a href="{% url "index"%}">管理ページ</a>
             </h1>
-            <div class="md:block">
-                <ul class=" flex justify-start my-4 md: justify-end">
-                        <li><a class="text-xs block hover:bg-gray-700 md: px-8 py-2   text-base"href="{% url "index" %}">Home</a></li>                
-                </ul>
-            </div>
         </div>
 
         
     </header>
 </div>
 <body class="bg-gray-100 w-full">
-    <main class="pt-10 ">
+    <main class="container mx-auto">
        
             {% block content %}
             {% endblock  %}

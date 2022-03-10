@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static "css/style.css" %} ">
     <link rel="stylesheet" href="{% static "css/style.min.css" %}"> 
     <link rel="stylesheet" href="{% static "css/animation.css" %} ">
-    <link rel="stylesheet" href="{% static "css/base.css" %}">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Blog</title>
 </head>
@@ -45,7 +45,7 @@
 </div>
 
 
-<body class="bg-gray-100 w-full h-full" >
+<body class="bg-gray-100 w-full h-full "style="background-image: url({% static 'images/hana.png' %});" >
     <main　class="">
         <div class="container mx-auto  mt-0 md:grid grid-cols-4 gap-4 md:mt-10">
             
@@ -92,12 +92,13 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="bg-white m-auto mb-5 py-3 mb-3 w-full md:py-0 md: m-0">
+                
+                <div class="bg-white m-auto py-3  w-full mb-3 md:py-0 md: m-0">
                     <div class="flex md:inline-block">
                         <img class="rounded w-2/5 mx-3 md:mx-0 md:w-full" src="{% static "images/img3.jpg" %}" height="80%" %>
                         <div class="">
                             <h1 class="bg-blue-500 text-2xl text-center text-white font-serif">SDI</h1>
-                            <p class="text-sm m-3">プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール</p>
+                            <p class="text-sm"></p>
                         </div>
                         
                     </div>

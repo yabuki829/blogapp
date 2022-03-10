@@ -3,7 +3,7 @@
 
 
 {% block content %}
-<div class="pt-5 ">
+<div class="">
     <form  method="post" enctype="multipart/form-data" class="">
         {% csrf_token %}
         {{ form.media }}
@@ -19,8 +19,9 @@
             {% render_field form.category class="form-controlw-1/12 text-2xl border-solid border-gray-300 border-4" placeholder="カテゴリを入力" %}
         </div>
       
-            <div class="py-3">
+            <div class="py-3 flex">
                 {{ form.image }}
+            </div>  
             </div>
             {% render_field form.content class="form-control resize-auto w-full  box-border text-xl p-3 m-1border-solid border-gray-300 border-4" placeholder="本文" %}
             
