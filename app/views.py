@@ -1,10 +1,4 @@
-from email import contentmanager, message
-from tkinter import font
-from turtle import title
-from unicodedata import category, name
-import django
 from django.conf import settings
-
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from .models import Post,Category
